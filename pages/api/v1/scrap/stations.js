@@ -1,10 +1,15 @@
 import { StatusCodes, ReasonPhrases } from 'http-status-codes'
 
+import { createDocument } from '@db/postData'
 import getStations from '@lib/scrap-stations'
 
 const handler = async (req, res) => {
   try {
     const stations = await getStations()
+
+    stations.forEach(async (station) => {
+      await createDocument('stations', station.id, station)
+    })
 
     res.status(StatusCodes.OK).json(stations)
   } catch (error) {
