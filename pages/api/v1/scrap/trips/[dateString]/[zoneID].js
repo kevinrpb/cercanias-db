@@ -1,7 +1,7 @@
 import { StatusCodes, ReasonPhrases } from 'http-status-codes'
 
 import { getZoneStations } from '@lib/firebase/db/getData'
-import { batchCreateNestedDocument } from '@lib/firebase/db/postData'
+import { batchCreateNestedDocuments } from '@lib/firebase/db/postData'
 import { cartesian } from '@lib/utils'
 import getTrips from '@lib/scrap-trip'
 
@@ -36,7 +36,7 @@ const handler = async (req, res) => {
         }
       })
 
-    const result = await batchCreateNestedDocument(elements)
+    const result = await batchCreateNestedDocuments(elements)
 
     res.status(StatusCodes.OK).json({
       dateString,
