@@ -17,7 +17,7 @@ div#__next {
   grid-template-areas:
     "header header"
     "form main"
-    "form footer";
+    "footer main";
 
   header {
     grid-area: header;

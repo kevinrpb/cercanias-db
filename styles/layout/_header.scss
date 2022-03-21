@@ -4,8 +4,8 @@ header {
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: center;
-  padding: 0.5rem;
+  justify-content: flex-start;
+  padding: 0.5rem 1rem;
 
   h1 {
     margin: 0;

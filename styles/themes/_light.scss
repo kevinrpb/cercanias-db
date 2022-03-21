@@ -1,7 +1,13 @@
 
-body {
-  --background: var(--platinum);
-  --text: var(--oxford-blue);
-  --accent: var(--byzantium);
+body, body[theme=light] {
+  --background: #{$platinum};
+  --background-light: #{lighten($platinum, 5%)};
+  --background-inverse: #{$oxford-blue};
 
+  --text: $oxford-blue;
+  --text-light: #{lighten($oxford-blue, 10%)};
+  --text-inverse: white;
+
+  --accent: #{$byzantium};
+  --accent-light: #{lighten($byzantium, 6%)};
 }

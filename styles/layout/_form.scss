@@ -3,13 +3,16 @@ form#tripForm {
   flex-direction: column;
 
   padding: 2rem 1rem;
-  margin: 1rem;
 
-  > input, select, button {
+  input, select, button {
     height: 2rem;
+  }
 
-    &:not(:first-child) {
-      margin-top: 1rem;
-    }
+  label:not(:first-of-type) {
+    margin-top: 1rem;
+  }
+
+  button[type=submit] {
+    margin-top: 2rem;
   }
 }
