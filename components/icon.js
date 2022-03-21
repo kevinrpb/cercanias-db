@@ -35,6 +35,7 @@ const _icons = {
   calendar: 'FiCalendar',
   'chevron-down': 'FiChevronDown',
   facebook: 'FiFacebook',
+  github: 'FiGithub',
   google: 'FaGoogle',
   handshake: 'FaHandshake',
   instagram: 'FiInstagram',

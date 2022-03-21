@@ -41,6 +41,19 @@ body {
     // background-color: var(--background-inverse);
     background: linear-gradient(90deg, #db3747 0%, #d62d61 25%, #81005e 50%, #5c457e 75%, #1c537f 100%);;
     color: var(--text-inverse);
+
+    nav {
+      a {
+        i {
+          color: var(--text-inverse);
+
+          svg {
+            width: 1.5rem;
+            height: 1.5rem;
+          }
+        }
+      }
+    }
   }
 
   // * Main
