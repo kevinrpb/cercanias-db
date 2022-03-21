@@ -9,15 +9,21 @@ form#tripForm {
     height: 2rem;
   }
 
-  label:not(:first-of-type) {
-    margin-top: 1rem;
+  label {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    &:not(:first-of-type) {
+      margin-top: 1rem;
+    }
   }
 
   button[type=submit] {
     margin-top: 2rem;
   }
 
-  span {
+  button ~ span {
     margin-top: 0.5rem;
     text-align: center;
 

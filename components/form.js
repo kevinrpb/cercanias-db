@@ -6,12 +6,19 @@ import { getFirestore, collection } from 'firebase/firestore'
 import { useCollectionDataOnce } from 'react-firebase-hooks/firestore'
 import { useForm } from 'react-hook-form'
 
-const Select = ({ id, title, loading, elements, register }) => (<>
-  <label htmlFor={id}>{title}</label>
+const Select = ({ id, title, loading, error, elements, register, validate }) => (<>
+  <label htmlFor={id}>{title}
+    {error &&
+      <span>{error.message}</span>
+    }
+  </label>
   <select
     id={id}
     name={id}
-    {...register(id, { required: '' })}
+    {...register(id, validate
+        ? { validate }
+        : { required: 'Field required' }
+    )}
   >
     {loading &&
       <option key="loading" value="loading">Loading...</option>
@@ -60,6 +67,7 @@ const Form = (props) => {
       id="zoneID"
       title="Zone"
       loading={zonesLoading}
+      error={formState.errors.zoneID}
       elements={zones}
       register={register}
     />
@@ -70,8 +78,10 @@ const Form = (props) => {
       id="originID"
       title="Origin"
       loading={stationsLoading}
+      error={formState.errors.originID}
       elements={stations}
       register={register}
+      validate={(value) => value != 'none' || 'Field required'}
     />
   )
 
@@ -80,8 +90,10 @@ const Form = (props) => {
       id="destinationID"
       title="Destination"
       loading={stationsLoading}
+      error={formState.errors.destinationID}
       elements={stations}
       register={register}
+      validate={(value) => value != 'none' || 'Field required'}
     />
   )
 
