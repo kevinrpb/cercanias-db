@@ -1,0 +1,57 @@
+// https://coolors.co/000000-14213d-81005e-e5e5e5-ffffff
+:root {
+  /* CSS HEX */
+  // --black: #000000ff;
+  // --oxford-blue: #14213dff;
+  // --byzantium: #81005eff;
+  // --platinum: #e5e5e5ff;
+  // --white: #ffffffff;
+
+  /* CSS HSL */
+  --black: hsla(0, 0%, 0%, 1);
+  --oxford-blue: hsla(221, 51%, 16%, 1);
+  --byzantium: hsla(316, 100%, 25%, 1);
+  --platinum: hsla(0, 0%, 90%, 1);
+  --white: hsla(0, 0%, 100%, 1);
+}
+
+body {
+  background-color: white;
+  color: var(--text);
+
+  // * General
+  p {
+    color: var(--text);
+  }
+
+  a {
+    color: var(--accent);
+    text-decoration: none;
+
+    &:visited {
+      color: var(--accent);
+    }
+  }
+
+  // * Header
+  header {
+    background-color: var(--oxford-blue);
+    color: white;
+  }
+
+  // * Main
+  main {
+    background-color: white;
+  }
+
+  // * Form
+  form#tripForm {
+    background-color: var(--background);
+    border-radius: 6px;
+
+    button[type=submit] {
+      background-color: var(--accent);
+      color: white;
+    }
+  }
+}

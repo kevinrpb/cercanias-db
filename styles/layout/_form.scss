@@ -1,0 +1,15 @@
+form#tripForm {
+  display: flex;
+  flex-direction: column;
+
+  padding: 2rem 1rem;
+  margin: 1rem;
+
+  > input, select, button {
+    height: 2rem;
+
+    &:not(:first-child) {
+      margin-top: 1rem;
+    }
+  }
+}

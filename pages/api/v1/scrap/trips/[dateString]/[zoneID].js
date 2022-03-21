@@ -1,7 +1,7 @@
 import { StatusCodes, ReasonPhrases } from 'http-status-codes'
 
-import { getZoneStations } from '@db/getData'
-import { createNestedDocument } from '@db/postData'
+import { getZoneStations } from '@lib/firebase/db/getData'
+import { createNestedDocument } from '@lib/firebase/db/postData'
 import { cartesian } from '@lib/utils'
 import getTrips from '@lib/scrap-trip'
 

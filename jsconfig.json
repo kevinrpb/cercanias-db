@@ -5,12 +5,11 @@
       "@/*": ["/*"],
       "@components/*": ["components/*"],
       "@data/*": ["data/*"],
-      "@db/*": ["db/*"],
-      "@firebase/*": ["firebase/*"],
+      "@db/*": ["lib/db/*"],
+      "@firebase/*": ["lib/firebase/*"],
       "@layouts/*": ["layouts/*"],
       "@lib/*": ["lib/*"],
-      "@styles/*": ["styles/*"],
-      "@themes/*": ["themes/*"]
+      "@styles/*": ["styles/*"]
     }
   }
 }

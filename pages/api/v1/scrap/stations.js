@@ -1,6 +1,6 @@
 import { StatusCodes, ReasonPhrases } from 'http-status-codes'
 
-import { createDocument } from '@db/postData'
+import { createDocument } from '@lib/firebase/db/postData'
 import getStations from '@lib/scrap-stations'
 
 const handler = async (req, res) => {
