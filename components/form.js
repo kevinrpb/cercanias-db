@@ -3,11 +3,11 @@ import React from 'react'
 import { createFirebaseApp } from '@lib/firebase/clientApp'
 
 import { getFirestore, collection } from 'firebase/firestore'
-import { useCollectionData } from 'react-firebase-hooks/firestore'
+import { useCollectionDataOnce } from 'react-firebase-hooks/firestore'
 import { useForm } from 'react-hook-form'
 
 const Select = ({ id, title, loading, elements, register }) => (<>
-  <label for={id}>{title}</label>
+  <label htmlFor={id}>{title}</label>
   <select
     id={id}
     name={id}
@@ -15,6 +15,9 @@ const Select = ({ id, title, loading, elements, register }) => (<>
   >
     {loading &&
       <option key="loading" value="loading">Loading...</option>
+    }
+    {!loading &&
+      <option key="none" value="none" disabled>Select {title}</option>
     }
     {elements && elements.map((element) => (
       <option key={element.id} value={element.id}>{element.name}</option>
@@ -29,21 +32,28 @@ const Form = (props) => {
   const db = getFirestore(app)
 
   const zonesCollection = collection(db, 'zones')
-  const [zones, zonesLoading, zonesError, zonesSnapshot] = useCollectionData(zonesCollection)
+  const [zones, zonesLoading, zonesError, zonesSnapshot] = useCollectionDataOnce(zonesCollection)
 
   const stationsCollection = collection(db, 'stations')
-  const [stations, stationsLoading, stationsError, stationsSnapshot] = useCollectionData(stationsCollection)
-
-  const {
-    handleSubmit,
-    register,
-    formState,
-  } = useForm()
+  const [stations, stationsLoading, stationsError, stationsSnapshot] = useCollectionDataOnce(stationsCollection)
 
   const TODAY = new Date()
   const minDate = TODAY.toISOString().split('T')[0]
   const TWO_WEEKS = new Date(TODAY.getTime() + (14*24*60*60*1000))
   const maxDate = TWO_WEEKS.toISOString().split('T')[0]
+
+  const {
+    handleSubmit,
+    register,
+    formState,
+  } = useForm({
+    defaultValues: {
+      zoneID: zones ? zones[0].id : null,
+      originID: 'none',
+      destinationID: 'none',
+      dateString: minDate
+    }
+  })
 
   const ZoneSelect = () => (
     <Select
@@ -76,7 +86,7 @@ const Form = (props) => {
   )
 
   const DateInput = () => (<>
-    <label for="dateString">Date</label>
+    <label htmlFor="dateString">Date</label>
     <input
       id="dateString"
       name="dateString"
@@ -95,6 +105,13 @@ const Form = (props) => {
       <DateInput />
 
       <button type='submit'>Submit</button>
+
+      {zonesError &&
+        <span>Zones: {zonesError.message}</span>
+      }
+      {stationsError &&
+        <span>Stations: {stationsError.message}</span>
+      }
     </form>
   )
 }

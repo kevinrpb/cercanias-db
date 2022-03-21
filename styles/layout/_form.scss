@@ -1,6 +1,7 @@
 form#tripForm {
   display: flex;
   flex-direction: column;
+  align-items: stretch;
 
   padding: 2rem 1rem;
 
@@ -14,5 +15,14 @@ form#tripForm {
 
   button[type=submit] {
     margin-top: 2rem;
+  }
+
+  span {
+    margin-top: 0.5rem;
+    text-align: center;
+
+    &:first-of-type {
+      margin-top: 1rem;
+    }
   }
 }

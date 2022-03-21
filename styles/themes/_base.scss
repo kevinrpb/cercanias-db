@@ -1,8 +1,9 @@
-// https://coolors.co/000000-14213d-81005e-e5e5e5-ffffff
+// https://coolors.co/000000-14213d-1c537f-81005e-e5e5e5-ffffff
 
 /* SCSS HSL */
 $black: hsla(0, 0%, 0%, 1);
 $oxford-blue: hsla(221, 51%, 16%, 1);
+$usafa-blue: hsla(207, 64%, 30%, 1);
 $byzantium: hsla(316, 100%, 25%, 1);
 $platinum: hsla(0, 0%, 90%, 1);
 $white: hsla(0, 0%, 100%, 1);
@@ -11,6 +12,7 @@ $white: hsla(0, 0%, 100%, 1);
   /* CSS HSL */
   --black: hsla(0, 0%, 0%, 1);
   --oxford-blue: hsla(221, 51%, 16%, 1);
+  --usafa-blue: hsla(207, 64%, 30%, 1);
   --byzantium: hsla(316, 100%, 25%, 1);
   --platinum: hsla(0, 0%, 90%, 1);
   --white: hsla(0, 0%, 100%, 1);
@@ -36,7 +38,8 @@ body {
 
   // * Header
   header {
-    background-color: var(--background-inverse);
+    // background-color: var(--background-inverse);
+    background: linear-gradient(90deg, #db3747 0%, #d62d61 25%, #81005e 50%, #5c457e 75%, #1c537f 100%);;
     color: var(--text-inverse);
   }
 
@@ -69,6 +72,10 @@ body {
       &:hover {
         cursor: pointer;
       }
+    }
+
+    span {
+      color: var(--text-error);
     }
   }
 }

@@ -2,11 +2,12 @@
 body, body[theme=light] {
   --background: #{$platinum};
   --background-light: #{lighten($platinum, 5%)};
-  --background-inverse: #{$oxford-blue};
+  --background-inverse: #{$usafa-blue};
 
-  --text: $oxford-blue;
-  --text-light: #{lighten($oxford-blue, 10%)};
+  --text: $usafa-blue;
+  --text-light: #{lighten($usafa-blue, 10%)};
   --text-inverse: white;
+  --text-error: red;
 
   --accent: #{$byzantium};
   --accent-light: #{lighten($byzantium, 6%)};
